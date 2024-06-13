@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:widgets_components/models/custom_question.model.dart';
+import 'package:widgets_components/models/options.model.dart';
 import 'package:widgets_components/pages/home.page.dart';
 
 class CustomQuizController extends GetxController {
@@ -17,7 +21,11 @@ class CustomQuizController extends GetxController {
 
   PageController pageController = PageController(initialPage: 0);
 
-  Widget showCurrentResult(BuildContext context, Icon iconWidget, Text textWidget) {
+  Widget showCurrentResult({
+    required BuildContext context, 
+    required Icon iconWidget, 
+    required Text textWidget
+  }) {
 
     if(canShowCurrentResult.isFalse) {
       return const SizedBox();
@@ -54,6 +62,32 @@ class CustomQuizController extends GetxController {
     ));
   }
 
+  markOption(int index, int indexOption) {
+    if(canShowCurrentResult.value) {
+      return;
+    }
+
+    _listOfCustomQuestion[index].options.forEach((Options options)  {
+      options.isCheked =  false;
+    });
+
+    _listOfCustomQuestion[index].options[indexOption].isCheked = true;
+
+
+    print(jsonEncode(_listOfCustomQuestion[index]));
+
+    /* customQuizController.setListOfCustomQuestion = listCustomQuestions; */
+
+    if(_listOfCustomQuestion[index].options[indexOption].isCorrect) {
+      answerCorrect.value = true;
+    }
+    else {
+      answerCorrect.value = false;
+
+    }
+    
+    _listOfCustomQuestion.refresh();
+  }
   
 
   validateAnswer(int nexpage) {

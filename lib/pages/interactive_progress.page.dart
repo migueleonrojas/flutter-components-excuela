@@ -45,10 +45,10 @@ class InteractiveProgressPage extends StatelessWidget {
         body: Obx(() => 
           InteractiveProgress(
             progress: interactiveProgressController.progress.value,
-            backgroundColorProgress: const Color.fromARGB(255, 41, 85, 151),
-            valueColor: const Color.fromARGB(255, 228, 30, 218),
-            boxColor: const Color.fromARGB(135, 125, 196, 125),
-            textBoxColor: const Color.fromARGB(216, 212, 88, 5),
+            backgroundColorProgress: Color.fromARGB(255, 176, 183, 194),
+            valueColor: Color(0xFF295597),
+            boxColor: Color.fromARGB(255, 10, 139, 179),
+            textBoxColor: Color.fromARGB(214, 255, 255, 255),
             title: 'Cargando...',
             sizeInteractiveProgress: 200,
           )

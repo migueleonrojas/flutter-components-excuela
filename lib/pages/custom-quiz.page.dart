@@ -15,31 +15,43 @@ class CustomQuizPage extends StatelessWidget {
       body: Column(
         children: [
           CustomQuiz(
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            borderColor: Colors.deepPurpleAccent,
+            selectedColor: Colors.green,
             listCustomQuestions:  <CustomQuestion>[
               CustomQuestion(
-                name: '¿El dia de hoy cuando pases a la siguiente prueba tecnica que piensas hacer para no embotarte?', 
+                name: '¿Cuanto es 2 + 2?', 
                 options: [
-                  Options(value: 'Comer', isCorrect: false, isCheked: false),
-                  Options(value: 'Dormir', isCorrect: false, isCheked: false),
-                  Options(value: 'Escuchar Musica', isCorrect: true, isCheked: false),
-                  Options(value: 'Nada', isCorrect: false, isCheked: false),
+                  Options(value: '2', isCorrect: false, isCheked: false),
+                  Options(value: '1', isCorrect: false, isCheked: false),
+                  Options(value: '4', isCorrect: true, isCheked: false),
+                  Options(value: '0', isCorrect: false, isCheked: false),
                 ]
               ),
               CustomQuestion(
-                name: '¿Que dias es hoy?', 
+                name: '¿De que color es el cielo?', 
                 options: [
-                  Options(value: 'Lunes', isCorrect: false, isCheked: false),
-                  Options(value: 'Martes', isCorrect: false, isCheked: false),
-                  Options(value: 'Miercoles', isCorrect: false, isCheked: false),
-                  Options(value: 'Jueves', isCorrect: true, isCheked: false),
+                  Options(value: 'Negro', isCorrect: false, isCheked: false),
+                  Options(value: 'Verde', isCorrect: false, isCheked: false),
+                  Options(value: 'Rojo', isCorrect: false, isCheked: false),
+                  Options(value: 'Azul', isCorrect: true, isCheked: false),
                 ]
               ),
               CustomQuestion(
-                name: '¿Hoy es Jueves?', 
+                name: '¿En la Antartida hay nieve?', 
                 options: [
-                  Options(value: 'Si', isCorrect: true, isCheked: false),
                   Options(value: 'No', isCorrect: false, isCheked: false),
-                 
+                  Options(value: 'Si', isCorrect: true, isCheked: false),                 
+                ]
+              ),
+              CustomQuestion(
+                name: '¿Cuantos estomagos tiene una vaca?', 
+                options: [
+                  Options(value: '4', isCorrect: true, isCheked: false),
+                  Options(value: '1', isCorrect: false, isCheked: false),
+                  Options(value: '3', isCorrect: false, isCheked: false),
+                  Options(value: '2', isCorrect: false, isCheked: false),
                 ]
               ),
             ],

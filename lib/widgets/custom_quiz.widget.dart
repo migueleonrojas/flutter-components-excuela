@@ -7,8 +7,20 @@ import 'package:widgets_components/models/options.model.dart';
 class CustomQuiz extends StatelessWidget {
 
   final List<CustomQuestion> listCustomQuestions;
+  final Color backgroundColor;
+  final Color textColor;
+  final Color borderColor;
+  final Color selectedColor;
 
-  const CustomQuiz({super.key, required this.listCustomQuestions});
+  const CustomQuiz({
+    super.key, 
+    required this.listCustomQuestions, 
+    required this.backgroundColor, 
+    required this.textColor,
+    required this.borderColor,
+    required this.selectedColor
+
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +32,7 @@ class CustomQuiz extends StatelessWidget {
     return Expanded(
 
       child: Container(
-        color: Colors.black,
+        color: backgroundColor,
         child: Obx(() =>
         Stack(
           children: [
@@ -37,8 +49,11 @@ class CustomQuiz extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(top: 40, left: 10, right: 10),
                         decoration: BoxDecoration(
+                          border: Border.all(
+                            color: borderColor
+                          ),
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,  
+                          color: backgroundColor,  
               
                         ),
                         child: Padding(
@@ -48,8 +63,9 @@ class CustomQuiz extends StatelessWidget {
                           child: Text(
                             currentCuestiom.name,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 25
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: textColor
                             ),
                           )
                         ),
@@ -77,36 +93,23 @@ class CustomQuiz extends StatelessWidget {
                             return ElevatedButton(
                               
                               style: ElevatedButton.styleFrom(
+                                side: BorderSide(
+                                  width: 3.0,
+                                  color: borderColor,
+                                ),
                                 padding: const EdgeInsets.all(5),
-                                backgroundColor: options.isCheked ? Colors.yellow : const Color(0xFFFFFFFF)
+                                backgroundColor: options.isCheked ? selectedColor : backgroundColor
                               ),
                               onPressed: ()  {
 
-                                if(customQuizController.canShowCurrentResult.value) {
-                                  return;
-                                }
-
-                                listCustomQuestions[index].options.forEach((Options options)  {
-                                  options.isCheked =  false;
-                                });
-              
-                                listCustomQuestions[index].options[indexOption].isCheked = true;
-              
-                                customQuizController.setListOfCustomQuestion = listCustomQuestions;
-
-                                if(options.isCorrect) {
-                                  customQuizController.answerCorrect.value = true;
-                                }
-                                
-                                customQuizController.getListOfCustomQuestion.refresh();
-              
+                                customQuizController.markOption(index, indexOption);
               
                               }, 
                               child: Text(
                                 options.value,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.black
+                                style: TextStyle(
+                                  color: textColor,
                                 ),
                               )
                             );
@@ -116,12 +119,24 @@ class CustomQuiz extends StatelessWidget {
                       ),
                       const Expanded(child: SizedBox()),
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: backgroundColor,
+                          side: BorderSide(
+                            width: 3.0,
+                            color: borderColor,
+                          ),
+                        ),
                         onPressed: () {
                           
                           customQuizController.validateAnswer(index);
                           
                         }, 
-                        child: const Text('Confirmar')
+                        child: Text(
+                          'Confirmar',
+                          style: TextStyle(
+                            color: textColor
+                          ),
+                        )
                       ),
                       const Expanded(child: SizedBox()),
             
@@ -132,8 +147,8 @@ class CustomQuiz extends StatelessWidget {
                 },
               ),
               customQuizController.showCurrentResult(
-                context, 
-                customQuizController.answerCorrect.value 
+                context: context, 
+                iconWidget :customQuizController.answerCorrect.value 
                   ? const Icon(
                     color: Colors.green,
                     Icons.check_circle_sharp,
@@ -145,7 +160,7 @@ class CustomQuiz extends StatelessWidget {
                     size: 180,
                   )
                   , 
-                 customQuizController.answerCorrect.value 
+                 textWidget: customQuizController.answerCorrect.value 
                   ? const Text(
                     'Respuesta Correcta',
                     style: TextStyle(
