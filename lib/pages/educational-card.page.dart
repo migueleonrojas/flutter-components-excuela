@@ -26,21 +26,46 @@ class EducationalCardPage extends StatelessWidget {
         title: const Text('Widget de Tarjeta Educativa'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          EducationalCard(
-            urlImage: "https://picsum.photos/200/300",
-            title: 'Desarrollador',
-            description: 'Hola soy programador saassasasasassasasasasasa',
-            tag: 'tag-1'
-          ),
-          EducationalCard(
-            urlImage: "https://picsum.photos/200/300",
-            title: 'Desarrollador',
-            description: 'Hola soy programador',
-            tag: 'tag-2',
-          ),
-        ],
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: [
+            EducationalCard(
+              urlImage: "https://picsum.photos/200/300",
+              title: 'Desarrollador',
+              description: 'Hola soy programador asassa asasasas asasas asasasasas sasaasasa',
+              tag: 'tag-1',
+              colorCard: Colors.deepOrange,
+              colorText: Colors.white,
+              colorButton: Colors.black,
+              colorTextButton: Colors.white,
+            ),
+            EducationalCard(
+              urlImage: "https://picsum.photos/200/300",
+              title: 'Desarrollador',
+              description: 'Hola soy programador',
+              tag: 'tag-2',
+              colorCard: Color.fromARGB(255, 32, 122, 32),
+              colorText: Colors.white,
+              colorButton: Colors.black,
+              colorTextButton: Colors.white,
+
+
+            ),
+            EducationalCard(
+              urlImage: "https://picsum.photos/200/300",
+              title: 'Desarrollador',
+              description: 'Hola soy programador',
+              tag: 'tag-3',
+              colorCard: Color.fromARGB(255, 86, 69, 160),
+              colorText: Color.fromARGB(255, 77, 6, 6),
+              colorButton: Colors.black,
+              colorTextButton: const Color.fromARGB(255, 182, 16, 16),
+
+
+            ),
+          ],
+        ),
       ),
       
     );
