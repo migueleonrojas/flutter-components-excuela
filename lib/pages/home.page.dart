@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:widgets_components/pages/educational-card.page.dart';
 import 'package:widgets_components/pages/interactive_progress.page.dart';
 
 
@@ -11,7 +12,9 @@ class HomePage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      
       appBar: AppBar(
+        leading: null,
         title: const Text("Widgets Master"),
         centerTitle: true,
       ),
@@ -30,13 +33,32 @@ class HomePage extends StatelessWidget {
                 backgroundColor: const Color(0xFFFF9000)
               ),
               onPressed: () {
-                Get.off(
+                Get.to(
                   InteractiveProgressPage(),
                   routeName: '/interactive-progress'
                 );
               },
               child: const Text(
                 'Widget de Progreso Interactivo',
+                style: TextStyle(color: Colors.white),
+              )
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(
+                  fontFamily: 'Raleway', 
+                  color: Colors.white
+                ),
+                backgroundColor: const Color(0xFFFF9000)
+              ),
+              onPressed: () {
+                Get.to(
+                  () => const EducationalCardPage(),
+                  routeName: '/educational-card'
+                );
+              },
+              child: const Text(
+                'Widget de Tarjeta Educativa',
                 style: TextStyle(color: Colors.white),
               )
             )
