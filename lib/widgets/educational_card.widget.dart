@@ -75,7 +75,7 @@ class EducationalCard extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       Text(
                         title,
                         style:  TextStyle(
@@ -84,7 +84,7 @@ class EducationalCard extends StatelessWidget {
                           color: colorText
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       Text(
                         description,
                         textAlign: TextAlign.center,
@@ -93,7 +93,7 @@ class EducationalCard extends StatelessWidget {
                           color: colorText  
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       TextButton(
                         style: TextButton.styleFrom(
                           backgroundColor: colorButton
@@ -116,7 +116,7 @@ class EducationalCard extends StatelessWidget {
                             alignment: Alignment.center
                           )
                         )),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
 
                     ],
                   )

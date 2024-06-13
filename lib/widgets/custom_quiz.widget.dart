@@ -130,7 +130,11 @@ class CustomQuiz extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          
+                          bool markOption = customQuizController.validateOptionMark(index);
+                          if(!markOption){
+                            customQuizController.showSnackBar();
+                            return;
+                          }
                           customQuizController.validateAnswer(index);
                           
                         }, 

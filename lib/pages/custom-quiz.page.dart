@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:widgets_components/models/custom_question.model.dart';
 import 'package:widgets_components/models/options.model.dart';
+import 'package:widgets_components/pages/home.page.dart';
 import 'package:widgets_components/widgets/custom_quiz.widget.dart';
 
 class CustomQuizPage extends StatelessWidget {
@@ -9,8 +11,18 @@ class CustomQuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         title: const Text('Widget de Quiz Personalizado'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.offAll(
+              () => const HomePage(),
+              routeName: "/home"
+            );
+          },
+        ),
       ),
       body: Column(
         children: [

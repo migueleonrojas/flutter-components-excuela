@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:widgets_components/models/custom_question.model.dart';
 import 'package:widgets_components/models/options.model.dart';
 import 'package:widgets_components/pages/home.page.dart';
@@ -62,14 +59,38 @@ class CustomQuizController extends GetxController {
     ));
   }
 
+  showSnackBar(){
+    Get.snackbar(
+      duration: const Duration(seconds: 5),
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: Colors.black,
+      colorText: Colors.white,
+      '¡Ups!', 
+      'Debe marcar una opcion.'
+    );
+  }
+
+  bool validateOptionMark (int indexQuestion) {
+
+    bool anyOptionMark = false;
+
+    for (Options options in _listOfCustomQuestion[indexQuestion].options) {
+      if(options.isCheked){
+        anyOptionMark = true;
+        break;
+      }
+    }
+    return anyOptionMark;
+  }
+
   markOption(int index, int indexOption) {
     if(canShowCurrentResult.value) {
       return;
     }
 
-    _listOfCustomQuestion[index].options.forEach((Options options)  {
+    for (Options options in _listOfCustomQuestion[index].options) {
       options.isCheked =  false;
-    });
+    }
 
     _listOfCustomQuestion[index].options[indexOption].isCheked = true;
 
@@ -95,7 +116,9 @@ class CustomQuizController extends GetxController {
       
       if(canGoNextPage) {
         if(nexpage + 1 != getListOfCustomQuestion.length){
-          pageController.animateToPage(nexpage + 1, duration: const Duration(milliseconds: 800), curve: Curves.decelerate);
+          if(pageController.hasClients) {
+            pageController.animateToPage(nexpage + 1, duration: const Duration(milliseconds: 800), curve: Curves.decelerate);
+          }
         }
         else {
           Get.defaultDialog(

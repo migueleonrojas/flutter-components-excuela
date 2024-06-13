@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
       initialRoute: "/",
       routes: {
-        "/interactive-progress": (_) => InteractiveProgressPage(),
+        "/interactive-progress": (_) => const InteractiveProgressPage(),
         "/educational-card": (_) => const EducationalCardPage(),
         "/custom-quiz": (_) => const CustomQuizPage()
       },

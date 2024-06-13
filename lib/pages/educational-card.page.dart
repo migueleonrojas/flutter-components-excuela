@@ -15,9 +15,9 @@ class EducationalCardPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Get.off(
-              const HomePage(),
-              routeName: '/'
+            Get.offAll(
+              () => const HomePage(),
+              routeName: "/home"
             );
           },
         ),
@@ -30,37 +30,37 @@ class EducationalCardPage extends StatelessWidget {
           children: [
             EducationalCard(
               urlImage: "https://picsum.photos/200/300",
-              title: 'Desarrollador',
-              description: 'Hola soy programador asassa asasasas asasas asasasasas sasaasasa',
+              title: 'Titulo de la tarjeta',
+              description: 'Un texto descriptivo',
               tag: 'tag-1',
               colorCard: Color(0xFF2C5EB9),
               colorText: Colors.white,
               colorButton: Colors.white,
               colorTextButton: Colors.black,
-              widthCard: 200,
+              widthCard: 250,
             ),
             EducationalCard(
               urlImage: "https://picsum.photos/200/300",
-              title: 'Desarrollador',
-              description: 'Hola soy programador',
+              title: 'Titulo de la tarjeta',
+              description: 'Un texto descriptivo',
               tag: 'tag-2',
               colorCard:  Color(0xFF281633),
               colorText: Colors.white,
               colorButton: Colors.white,
               colorTextButton: Colors.black,
-              widthCard: 200,
+              widthCard: 250,
             ),
             EducationalCard(
               urlImage: "https://picsum.photos/200/300",
-              title: 'Desarrollador',
-              description: 'Hola soy programador',
+              title: 'Titulo de la tarjeta',
+              description: 'Un texto descriptivo',
               tag: 'tag-3',
               colorCard:  Color.fromARGB(255, 51, 190, 167),
               colorText: Colors.white,
               colorButton: Colors.white,
               colorTextButton: Colors.black,
-              widthCard: 200,
-
+              widthCard: 250,
+    
             ),
           ],
         ),

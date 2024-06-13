@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       
       appBar: AppBar(
-        leading: null,
+        leading: const SizedBox(),
         title: const Text("Widgets Master"),
         centerTitle: true,
       ),
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
               ),
               onPressed: () {
                 Get.to(
-                  InteractiveProgressPage(),
+                  const InteractiveProgressPage(),
                   routeName: '/interactive-progress'
                 );
               },
