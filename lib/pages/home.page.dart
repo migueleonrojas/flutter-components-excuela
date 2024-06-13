@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:widgets_components/pages/custom-quiz.page.dart';
 import 'package:widgets_components/pages/educational-card.page.dart';
 import 'package:widgets_components/pages/interactive_progress.page.dart';
 
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
                   fontFamily: 'Raleway', 
                   color: Colors.white
                 ),
-                backgroundColor: const Color(0xFFFF9000)
+                backgroundColor: const Color.fromARGB(255, 0, 0, 0)
               ),
               onPressed: () {
                 Get.to(
@@ -49,12 +50,31 @@ class HomePage extends StatelessWidget {
                   fontFamily: 'Raleway', 
                   color: Colors.white
                 ),
-                backgroundColor: const Color(0xFFFF9000)
+                backgroundColor: const Color.fromARGB(255, 0, 0, 0)
               ),
               onPressed: () {
                 Get.to(
                   () => const EducationalCardPage(),
                   routeName: '/educational-card'
+                );
+              },
+              child: const Text(
+                'Widget de Tarjeta Educativa',
+                style: TextStyle(color: Colors.white),
+              )
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(
+                  fontFamily: 'Raleway', 
+                  color: Colors.white
+                ),
+                backgroundColor: const Color.fromARGB(255, 0, 0, 0)
+              ),
+              onPressed: () {
+                Get.to(
+                  () => const CustomQuizPage(),
+                  routeName: '/custom-quiz'
                 );
               },
               child: const Text(

@@ -10,7 +10,8 @@ class InteractiveProgress extends StatelessWidget {
   final String title;
   final double sizeInteractiveProgress;
 
-  InteractiveProgress({
+  const InteractiveProgress({
+    super.key,
     required this.progress, 
     required this.backgroundColorProgress, 
     required this.valueColor,
@@ -31,8 +32,7 @@ class InteractiveProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
+  
     return SizedBox(
       width: double.infinity,
       child: Column(

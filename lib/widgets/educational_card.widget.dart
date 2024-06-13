@@ -14,7 +14,8 @@ class EducationalCard extends StatelessWidget {
   final Color colorTextButton;
   
 
-  EducationalCard({
+  const EducationalCard({
+    super.key,
     required this.urlImage, 
     required this.title, 
     required this.description, 
@@ -41,7 +42,7 @@ class EducationalCard extends StatelessWidget {
           elevation: 3,
           child: Center(
             child: Padding(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               child: Column(
                 children: [
                   Hero(
