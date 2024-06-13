@@ -37,6 +37,7 @@ class EducationalCardPage extends StatelessWidget {
               colorText: Colors.white,
               colorButton: Colors.white,
               colorTextButton: Colors.black,
+              widthCard: 200,
             ),
             EducationalCard(
               urlImage: "https://picsum.photos/200/300",
@@ -47,8 +48,7 @@ class EducationalCardPage extends StatelessWidget {
               colorText: Colors.white,
               colorButton: Colors.white,
               colorTextButton: Colors.black,
-
-
+              widthCard: 200,
             ),
             EducationalCard(
               urlImage: "https://picsum.photos/200/300",
@@ -56,10 +56,10 @@ class EducationalCardPage extends StatelessWidget {
               description: 'Hola soy programador',
               tag: 'tag-3',
               colorCard:  Color.fromARGB(255, 51, 190, 167),
-              colorText:  Color.fromARGB(255, 255, 255, 255),
-              colorButton: Colors.black,
-              colorTextButton:  Colors.white,
-
+              colorText: Colors.white,
+              colorButton: Colors.white,
+              colorTextButton: Colors.black,
+              widthCard: 200,
 
             ),
           ],

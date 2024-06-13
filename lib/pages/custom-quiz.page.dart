@@ -41,8 +41,8 @@ class CustomQuizPage extends StatelessWidget {
               CustomQuestion(
                 name: '¿En la Antartida hay nieve?', 
                 options: [
-                  Options(value: 'No', isCorrect: false, isCheked: false),
-                  Options(value: 'Si', isCorrect: true, isCheked: false),                 
+                  Options(value: 'Verdadero', isCorrect: true, isCheked: false),                 
+                  Options(value: 'Falso', isCorrect: false, isCheked: false),
                 ]
               ),
               CustomQuestion(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:widgets_components/controllers/interactive_progress.controllers.dart';
 
 class InteractiveProgress extends StatelessWidget {
 
@@ -19,19 +21,15 @@ class InteractiveProgress extends StatelessWidget {
     required this.textBoxColor, 
     required this.title,
     required this.sizeInteractiveProgress
-  }):
-    assert(
-      progress > 0.0 || progress <= 1.0, 
-      'El valor para indicar el progreso debe ser mayor a 0.0 y menor 1.0.'
-    ),
-    assert(
-      sizeInteractiveProgress >= 200 || sizeInteractiveProgress <= 300,
-      'El tamaño del Widget de Progreso Interactivo debe ser mayor a 200 y menor a 300.'
-    );
+  });
    
 
   @override
   Widget build(BuildContext context) {
+    final InteractiveProgressController interactiveProgressController = Get.put(InteractiveProgressController());
+
+    interactiveProgressController.startInterval = true;
+    interactiveProgressController.clearProgress = 0.0;
   
     return SizedBox(
       width: double.infinity,
@@ -57,22 +55,24 @@ class InteractiveProgress extends StatelessWidget {
                 ),
                 
               ),
-              Positioned(
-                top: sizeInteractiveProgress *  0.10,
-                width: sizeInteractiveProgress * 0.80,
-                height: sizeInteractiveProgress * 0.80,
-                left: sizeInteractiveProgress * 0.10,
-                child: TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: 0.0, end: progress),
-                  duration: const Duration(milliseconds: 1000),
-                  builder: (context, value, _) => CircularProgressIndicator(
-                  value: value,
-                  backgroundColor: backgroundColorProgress,
-                  valueColor: AlwaysStoppedAnimation<Color>(valueColor),
-                  strokeCap: StrokeCap.round,
-                  strokeWidth: 15,
-                  
-                ),
+              Obx(
+                () => Positioned(
+                  top: sizeInteractiveProgress *  0.10,
+                  width: sizeInteractiveProgress * 0.80,
+                  height: sizeInteractiveProgress * 0.80,
+                  left: sizeInteractiveProgress * 0.10,
+                  child: TweenAnimationBuilder<double>(
+                    tween: Tween<double>(begin: 0.0, end: interactiveProgressController.progress.value),
+                    duration: const Duration(milliseconds: 1000),
+                    builder: (context, value, _) => CircularProgressIndicator(
+                    value: value,
+                    backgroundColor: backgroundColorProgress,
+                    valueColor: AlwaysStoppedAnimation<Color>(valueColor),
+                    strokeCap: StrokeCap.round,
+                    strokeWidth: 15,
+                    
+                  ),
+                  ),
                 ),
               ),
               Positioned(
@@ -81,12 +81,15 @@ class InteractiveProgress extends StatelessWidget {
                 height: sizeInteractiveProgress * 0.20,
                 left: sizeInteractiveProgress * 0.10,
             
-                child: Text(
-                  '${num.parse((progress * 100).toString()).toStringAsFixed(2)} %',
-                  textAlign:TextAlign.center ,
-                  style: TextStyle(
-                    color: textBoxColor,
-                    fontSize: sizeInteractiveProgress * 0.10
+                child: Obx(
+                  () => 
+                  Text(
+                    '${num.parse((interactiveProgressController.progress.value * 100).toString()).toStringAsFixed(2)} %',
+                    textAlign:TextAlign.center ,
+                    style: TextStyle(
+                      color: textBoxColor,
+                      fontSize: sizeInteractiveProgress * 0.10
+                    ),
                   ),
                 ),
               )

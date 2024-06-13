@@ -73,11 +73,6 @@ class CustomQuizController extends GetxController {
 
     _listOfCustomQuestion[index].options[indexOption].isCheked = true;
 
-
-    print(jsonEncode(_listOfCustomQuestion[index]));
-
-    /* customQuizController.setListOfCustomQuestion = listCustomQuestions; */
-
     if(_listOfCustomQuestion[index].options[indexOption].isCorrect) {
       answerCorrect.value = true;
     }

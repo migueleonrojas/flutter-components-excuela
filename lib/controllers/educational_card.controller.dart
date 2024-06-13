@@ -55,27 +55,24 @@ class EducationalCardController extends GetxController {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Flexible(
-                    flex: 1,
-                    fit: FlexFit.loose,
+                  Expanded(
+                    
                     child: widget
                   ),
-                  Flexible(
-                    child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.black
-                        ),
-                        child: const Text(
-                          'Regresarse',
-                          style: TextStyle(
-                            color: Colors.white
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
+                  TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.black
                       ),
-                  )
+                      child: const Text(
+                        'Regresarse',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    )
 
                 ],
               ),

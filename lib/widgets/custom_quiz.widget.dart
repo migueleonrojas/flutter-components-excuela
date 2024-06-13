@@ -45,9 +45,12 @@ class CustomQuiz extends StatelessWidget {
                   CustomQuestion currentCuestiom = CustomQuestion.fromJson(customQuizController.getListOfCustomQuestion[index].toJson());
               
                   return Column(
+                    
                     children: [
+                      const Expanded(child: SizedBox()),
+
                       Container(
-                        margin: const EdgeInsets.only(top: 40, left: 10, right: 10),
+                        
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: borderColor
@@ -101,7 +104,7 @@ class CustomQuiz extends StatelessWidget {
                                 backgroundColor: options.isCheked ? selectedColor : backgroundColor
                               ),
                               onPressed: ()  {
-
+        
                                 customQuizController.markOption(index, indexOption);
               
                               }, 
@@ -132,9 +135,11 @@ class CustomQuiz extends StatelessWidget {
                           
                         }, 
                         child: Text(
-                          'Confirmar',
+                          'Validar',
+                          
                           style: TextStyle(
-                            color: textColor
+                            color: textColor,
+                            fontSize: 20
                           ),
                         )
                       ),
